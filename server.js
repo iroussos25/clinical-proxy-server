@@ -48,7 +48,7 @@ app.get('/api/clinical/vitals', async (req, res) => {
 });
 
 // 3. THE LISTENER (The Bottom Bun)
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
     console.log(`🚀 Clinical Proxy Server active on http://localhost:${PORT}`);
 });
 
