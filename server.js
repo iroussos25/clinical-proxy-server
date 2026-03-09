@@ -59,6 +59,12 @@ app.use(limiter);
 
 app.use(express.json());
 
+// ======================== INPUT SANITIZATION ================================
+// Strips dangerous characters from all incoming query, param, and body values
+// to mitigate injection attacks (XSS, SQL/NoSQL injection, command injection).
+const { sanitizeMiddleware } = require('./utils/sanitize');
+app.use(sanitizeMiddleware);
+
 // ============================= 2. AUDIT LOG ================================
 // HIPAA §164.312(b) — Record and examine access activity.  In production this
 // would feed into a SIEM; here we write an append-only log file.
